@@ -60,8 +60,11 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<LoginResult>() {
             @Override
             public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+
                 if(response.code() == 200) {
+
                     Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
+
                 } else if(response.code() == 400) {
                     Toast.makeText(LoginActivity.this, "Error Logging In", Toast.LENGTH_SHORT).show();
                 } else if(response.code() == 404) {
